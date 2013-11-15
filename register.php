@@ -26,10 +26,18 @@
 	`signature` text,
 	*/
 ?>
-	
+<script type="text/javascript">
+	function check_msg(){
+		if(document.getElementById('firstpwd').value != document.getElementById('secondpwd').value){
+			alert("The password you second input is different with the first one");
+		}
+		else 
+			document.getElementById('registerForm').submit();
+	}
+</script>	
 	
 
-<form name="register" action="register.php" method="post">
+<form name="register" action="register.php" method="post" id="registerForm" > <!---onsubmit="return check_msg();"-->
 <table>
 <tr>
 	<td>Username: </td> 
@@ -37,7 +45,11 @@
 </tr>
 <tr>
 	<td>Password: </td>
-	<td><input type="password" name="password" /></td>
+	<td><input id = "firstpwd" type="password" name="password" /></td>
+</tr>
+<tr>
+	<td>Password again: </td>
+	<td><input id = "secondpwd" type="password" name="passwordagain" /></td>
 </tr>
 <tr>
 	<td>Gender: </td>
@@ -63,7 +75,7 @@
 	<td><textarea rows="3" cols="30" />Please input your signature.</textarea></td>
 </tr>
 <tr>
-	<td><input type="submit" value="Submit" /></td>
+	<td><input type="button" value = "Submit" onclick = "check_msg()"/></td>
 </tr>
 <input type="hidden" name="op" value="true">
 <br />
