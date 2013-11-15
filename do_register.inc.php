@@ -32,3 +32,11 @@
 //do my job	
 	
 ?>
+<script type="text/javascript">
+<!--
+	function createBirthForm(){
+		document.write("fuck");
+	}
+-->
+
+</script>

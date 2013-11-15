@@ -30,12 +30,42 @@
 	
 
 <form name="register" action="register.php" method="post">
-Username: 
-<input type="text" name="username" />
-<br />
-Password: 
-<input type="password" name="password" />
+<table>
+<tr>
+	<td>Username: </td> 
+	<td><input type="text" name="username" /></td>
+</tr>
+<tr>
+	<td>Password: </td>
+	<td><input type="password" name="password" /></td>
+</tr>
+<tr>
+	<td>Gender: </td>
+	<td><input type="radio" name="sex" value="male" /> Male<input type="radio" name="sex" value="female" /> Female</td>
+</tr>
+<tr>
+	<td>Email: </td>
+	<td><input type="text" name="e-mail" /></td>
+</tr>
+<tr>
+	<td>Birth: </td>
+	<td>
+		<script type="text/javascript">
+			document.write('<select neme = "year">
+			<option value = "sd">sdf</option>
+			<option value="saab">Saab</option>
+			</select>');
+		</script>
+	</td>
+</tr>
+<tr>
+	<td>Signature: </td>
+	<td><textarea rows="3" cols="30" />Please input your signature.</textarea></td>
+</tr>
+<tr>
+	<td><input type="submit" value="Submit" /></td>
+</tr>
 <input type="hidden" name="op" value="true">
 <br />
-<input type="submit" value="Submit" />
+</table>
 </form>
