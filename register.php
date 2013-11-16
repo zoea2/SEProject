@@ -2,6 +2,7 @@
 	include("header.inc.php");
 	include_once("do_register.inc.php");
 	if(isset($_POST['op']) && $_POST['op'] == true){
+		//print_r($_POST);
 		try{
 			if(register($_POST)){
 				header("Location:nice.php");
@@ -11,7 +12,7 @@
 			// unsuccessful login
 			echo "<a>".$e->getMessage()."</a>";
 			
-		}	
+		}
 	}
 	/*
 	`uid` integer unsigned not null auto_increment,
@@ -26,14 +27,29 @@
 	`signature` text,
 	*/
 ?>
-
-<script type="text/javascript">
+<script type="text/javascript" src="md5.js" ></script>
+<script type="text/javascript" >
+	function check_email(email_adr){
+		var email = email_adr;
+		var pattern = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+		if(pattern.test(email))
+			return true;
+		else
+			return false;
+	}
 	function check_msg(){
 		if(document.getElementById('firstpwd').value != document.getElementById('secondpwd').value){
 			alert("The password you second input is different with the first one");
-		}		
-		else 
+		}
+		else if(document.getElementById('email').value == "")
+			alert("Please input your email address");
+		else if(!check_email(document.getElementById('email').value))
+			alert("Please input correct email address");			
+		else{
+			document.getElementById('firstpwd').value = hex_md5(document.getElementById('firstpwd').value);
 			document.getElementById('registerForm').submit();
+		}
+
 	}
 	function createBirthForm(){
 		var birthForm = '<select name="cars"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select>';
@@ -62,7 +78,7 @@
 </tr>
 <tr>
 	<td>Email: </td>
-	<td><input type="text" name="email" /></td>
+	<td><input type="text" name="email" id = "email" /></td>
 </tr>
 <tr>
 	<td>Birth: </td>
