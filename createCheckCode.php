@@ -30,7 +30,6 @@
 		$color = ImageColorAllocate($im, rand(40,140),rand(40,140),rand(40,140));
 		imagettftext($im,$fontsize,$angle,$x,$y,$color,$fonturl,$latter);
 	}
-	$file=fopen("code.jpeg",'w');
 	header("Content-Type:image/jpeg");
 	imagejpeg($im);
 	imagedestroy($im);	
