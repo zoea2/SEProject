@@ -377,3 +377,6 @@ function bit_rol(num, cnt)
 {
   return (num << cnt) | (num >>> (32 - cnt));
 }
+function md5encode(id){
+    document.getElementById(id).value = hex_md5(document.getElementById(id).value);
+}

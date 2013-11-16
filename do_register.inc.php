@@ -5,7 +5,6 @@
 		
 		$con = db_connect();
 		extract($form);
-		//$password = md5($password);
 		if(!isset($username)){
 			throw new Exception('请填入用户名');
 		}

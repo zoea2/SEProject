@@ -46,7 +46,7 @@
 		else if(!check_email(document.getElementById('email').value))
 			alert("Please input correct email address");			
 		else{
-			document.getElementById('firstpwd').value = hex_md5(document.getElementById('firstpwd').value);
+			md5encode("firstpwd");
 			document.getElementById('registerForm').submit();
 		}
 
