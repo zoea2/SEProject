@@ -12,7 +12,7 @@
 			$result =  mysql_fetch_array($result);
 			$result = stripslashes_deep($result);
 			unset($result["password"]);
-			
+			return $result;
 		}
 		else {
 			return ["error"=>"no query result"];
