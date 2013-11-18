@@ -10,7 +10,7 @@ create table `User` (
 	`username` varchar(45) not null unique default '',
 	`password` varchar (45)  not null default '',
 	`gender` char(1) not null default '0',
-	`e-mail` varchar(255) ,
+	`email` varchar(255) ,
 	`photo_id` integer unsigned not null default 0,
 	`birth` date,
 	`reg_time` date,
@@ -43,7 +43,8 @@ create table `Participant` (
 -- Picture --
 create table `Picture` (
 	`pic_id` integer unsigned not null auto_increment,
-	`pic` blob,
+	`pic` long blob,
+	`owner` uid,
 	primary key (`pic_id`)
 );
 ALTER TABLE `Picture` auto_increment = 0;	

@@ -7,5 +7,6 @@ function reCreatCode()
 	element=document.getElementById('codeImg')
 	element.src = "createCheckCode.php";
 }
-</script>
+
+</script> 
 </head>
