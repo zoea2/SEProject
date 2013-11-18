@@ -46,7 +46,6 @@
 	}
 </script>	
 <div id = "login_frame">
-
 <form action="login.php" method="post" id= "loginForm">
 <table>
 <tr><td>Username:</td> <td><input type="text" name="username" id="usernames" /></td></tr>
