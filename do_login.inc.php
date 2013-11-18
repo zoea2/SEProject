@@ -1,9 +1,11 @@
 <?php
 
 	include_once("dbconnect.inc.php");
+	include_once("function.inc.php")
 	function login($username,$password){
+
 		$con = db_connect();
-		//$password = md5($password);
+		$username = stripslashes_deep($username);
 		//echo $password;
 		$result = mysql_query("select * from `User` where `username` = '".$username."' and `password` = '".$password."'",$con);
 		if (mysql_num_rows($result) > 0) {
@@ -14,7 +16,7 @@
 				$_SESSION["auth"] = $row["auth"];
 			}
 		} else {
-			throw new Exception('login fail');
+			return ["error"=>"no query result"];
 		}
 		
 	}
