@@ -7,16 +7,7 @@
 		$con = db_connect();
 		$form= addslashes_deep($form);
 		extract($form);
-<<<<<<< HEAD
-		if(!isset($username)){
-			throw new Exception('请填入用户名');
-		}
-		if(!isset($password)){
-			throw new Exception('请输入密码');
-		}		
-=======
-		
->>>>>>> Yelrose/master
+
 		$result = mysql_query("select * from `User` where `username` = '".$username."'",$con);
 		if(!$result){
 			die("mysql error:".mysql_error());

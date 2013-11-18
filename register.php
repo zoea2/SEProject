@@ -39,29 +39,31 @@
 			return false;
 	}
 	function check_msg(){
-		if(document.getElementById('firstpwd').value != document.getElementById('secondpwd').value){
+		if(document.getElementById('usernames').value == "")
+			alert("Please input your username");
+		else if(document.getElementById("firstpwd").value == "")
+			alert("Please input your password");
+		else if(document.getElementById("secondpwd").value == "")
+			alert("Please input your password again");
+		else if(document.getElementById('firstpwd').value != document.getElementById('secondpwd').value){
 			alert("The password you second input is different with the first one");
 		}
-		else if(document.getElementById('email').value == "")
+		else if(document.getElementById('emailadd').value == "")
 			alert("Please input your email address");
-		else if(!check_email(document.getElementById('email').value))
-			alert("Please input correct email address");			
+		else if(!check_email(document.getElementById('emailadd').value))
+			alert("Please input a correct email address");			
 		else{
 			md5encode("firstpwd");
 			document.getElementById('registerForm').submit();
 		}
 
 	}
-	function createBirthForm(){
-		var birthForm = '<select name="cars"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select>';
-		document.getElementById("birthForm").innerHTML = birthForm;
-	}
 </script>	
 <form name="register" action="register.php" method="post" id="registerForm" > <!---onsubmit="return check_msg();"-->
 <table id = "register_form">
 <tr id="username">
 	<td>Username: </td> 
-	<td><input type="text" name="username" /></td>
+	<td><input type="text" name="username" id="usernames"/></td>
 	
 </tr>
 <tr id="password">
@@ -78,7 +80,7 @@
 </tr>
 <tr id="email">
 	<td>Email: </td>
-	<td><input type="text" name="email" id = "email" /></td>
+	<td><input type="text" name="email" id = "emailadd" /></td>
 </tr>
 <tr id="birth">
 	<td>Birth: </td>

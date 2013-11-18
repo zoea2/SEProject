@@ -30,17 +30,33 @@
 	}
 ?>
 <script type="text/javascript" src = "md5.js"></script>
+<script type="text/javascript" >
+	function check_msg(){
+		if(document.getElementById('usernames').value == "")
+			alert("Please input your username");
+		else if(document.getElementById("password").value == "")
+			alert("Please input your password");	
+		else if(document.getElementById('checkcodeinput').value == "")
+			alert("Please input checkcode");
+		else{
+			md5encode("password");
+			document.getElementById('loginForm').submit();
+		}
 
+	}
+</script>	
 <div id = "login_frame">
 
-<form action="login.php" method="post">
+<form action="login.php" method="post" id= "loginForm">
 <table>
-<tr><td>Username:</td> <td><input type="text" name="username" /></td></tr>
-<tr><td>Password: </td><td><input type="password" name="password" id = "password" /></td></tr>
-<tr><td>CheckCode:</td><td><input type="text" name = "checkcode" /></td></tr>
+<tr><td>Username:</td> <td><input type="text" name="username" id="usernames" /></td></tr>
+<tr><td>Password: </td><td><input type="password" name="password" id="password" /></td></tr>
+<tr><td>CheckCode:</td><td><input type="text" name ="checkcode" id="checkcodeinput" /></td></tr>
+
 </table>
 	<div><img id = "codeImg" src="createCheckCode.php" onclick="reCreatCode()"></div>
-	<div><input type="submit" name = "op" value = "Login" onclick = 'md5encode("password")' /><a href ="register.php">register</a></div>
+	<div><input type="button" onclick = 'check_msg()' value="Login" /><a href ="register.php">register</a></div>
+	<input type="hidden" name="op" value="Login"/> 
 	<div>
 		<?php 
 			if(isset($error_msg)){
