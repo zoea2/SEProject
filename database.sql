@@ -43,8 +43,7 @@ create table `Participant` (
 -- Picture --
 create table `Picture` (
 	`pic_id` integer unsigned not null auto_increment,
-	`pic` long blob,
-	`owner` uid,
+	`pic` blob,
 	primary key (`pic_id`)
 );
 ALTER TABLE `Picture` auto_increment = 0;	
