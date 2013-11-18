@@ -74,7 +74,7 @@
 </tr>
 <tr>
 	<td>Gender: </td>
-	<td><input type="radio" name="sex" value="1" /> Male<input type="radio" name="sex" value="2" /> Female</td>
+	<td><input type="radio" name="gender" value="1" /> Male<input type="radio" name="gender" value="2" /> Female</td>
 </tr>
 <tr>
 	<td>Email: </td>
@@ -86,7 +86,7 @@
 </tr>
 <tr>
 	<td>Signature: </td>
-	<td><textarea rows="3" cols="30" />Please input your signature.</textarea></td>
+	<td><textarea rows="3" cols="30" name= "signature" />Please input your signature.</textarea></td>
 </tr>
 <tr>
 	<td><input type="button" value = "Submit" onclick = "check_msg()"/></td>
