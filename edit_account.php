@@ -1,32 +1,6 @@
 <?php
-	include("header.inc.php");
-	include("function.inc.php");
-	include_once("do_register.inc.php");
-	if(isset($_POST['op']) && $_POST['op'] == true){
-		//print_r($_POST);
-		try{
-			if(register($_POST)){
-				header("Location:nice.php");
-			}
-		}	
-		catch (Exception $e) {
-			// unsuccessful login
-			$msg = $e->getMessage();
-			if($msg == "exist username"){
-				?>
-					<script type="text/javascript">//show_msg()</script>
-				<?php
-			}
-		}	
-	}
+	include_once();
 ?>
-
-<script type="text/javascript">
-	function show_msg(){
-		document.getElementById("username_error").style.visibility="visible";
-	}
-
-</script>
 <script type = "text/javascript" src="js/Calendar4.js" ></script>
 <script type="text/javascript" src="md5.js" ></script>
 <script type="text/javascript" >
@@ -59,7 +33,7 @@
 
 	}
 </script>	
-<form name="register" action="register.php" method="post" id="registerForm" > <!---onsubmit="return check_msg();"-->
+<form name="register" action="edit_account.php" method="post" id="registerForm" > <!---onsubmit="return check_msg();"-->
 <table id = "register_form">
 <tr id="username">
 	<td>Username: </td> 
