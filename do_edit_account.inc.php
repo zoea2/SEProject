@@ -6,7 +6,8 @@
 		$form = addslashes_deep($form);
 		$con = db_connect();
 		extract($form);
-		
+		session_start();
+		extract($_SESSION);
 		
 		$query="update `User` set ";
 		$dot ="";
